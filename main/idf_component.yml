@@ -1,0 +1,6 @@
+dependencies:
+  idf: ">=5.3"
+  waveshare/esp32_s3_touch_lcd_4b: "^2.0.0"
+  # pinned to the versions this project was built and tested against
+  lvgl/lvgl: "~9.6.0"
+  espressif/esp_lvgl_port: "~2.9.0"

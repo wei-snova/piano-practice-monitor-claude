@@ -1,0 +1,6 @@
+build/
+managed_components/
+sdkconfig
+sdkconfig.old
+test/host_test
+test/classify_test

@@ -1,0 +1,63 @@
+menu "Practice Logger"
+
+    config PL_WIFI_SSID
+        string "Wi-Fi SSID (leave empty to run offline)"
+        default ""
+        help
+            Wi-Fi sets the clock (needed to split totals into days) and lets you
+            download the session log from http://<board-ip>/.
+
+    config PL_WIFI_PASSWORD
+        string "Wi-Fi password"
+        default ""
+
+    config PL_TIMEZONE
+        string "POSIX time zone"
+        default "PST8PDT,M3.2.0,M11.1.0"
+        help
+            Pacific time by default. Examples:
+              US Eastern  EST5EDT,M3.2.0,M11.1.0
+              UK          GMT0BST,M3.5.0/1,M10.5.0
+              Central EU  CET-1CEST,M3.5.0,M10.5.0/3
+              China       CST-8
+
+    config PL_DAILY_GOAL_MIN
+        int "Daily practice goal (minutes)"
+        default 30
+        range 1 600
+
+    config PL_START_HOLD_S
+        int "Seconds of playing before a session starts"
+        default 5
+        range 2 60
+
+    config PL_STOP_GAP_S
+        int "Seconds of silence that end a session"
+        default 90
+        range 15 900
+        help
+            Pauses shorter than this (page turns, re-tuning, a quick break)
+            stay inside the session. The trailing silence is not counted.
+
+    config PL_MIN_SESSION_S
+        int "Minimum session length to log (seconds)"
+        default 60
+        range 0 900
+
+    config PL_CORRECT_WINDOW_MIN
+        int "Minutes after a session during which its instrument can be corrected"
+        default 15
+        range 1 240
+        help
+            Instrument detection is automatic. If it got a session wrong, tap the
+            other instrument on the screen within this time; the board fixes the
+            log and learns from the correction.
+
+    config PL_MIC_GAIN_DB
+        int "Microphone gain (dB)"
+        default 30
+        range 0 37
+        help
+            Lower this if the level meter sits near full while you play.
+
+endmenu
